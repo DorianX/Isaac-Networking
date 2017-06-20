@@ -1,0 +1,7 @@
+{
+  "seed": "GENERATE",
+  "port": 21666,
+  "maxClient": 10,
+  "bufferMax": 32768,
+  "enableLog": false
+}

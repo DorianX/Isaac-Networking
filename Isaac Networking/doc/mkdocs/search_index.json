@@ -1,0 +1,74 @@
+{
+    "docs": [
+        {
+            "location": "/index.html",
+            "text": "Isaac Networking System Setup\n\n\nUsage guide.\n\n\nClient Setup, Step by Step\n\n\n\n\nSubscribe to IsaacNetwork on Steam.\n\n\nAdd \n--luadebug\n in \nSteam > Library > The Binding of Isaac: Rebirth > Properties > Set Launch Options\n. (For security reasons, remove it when not using the client)\n\n\nSubscribe to the plugins you want to use.\n\n\nIf your server does not use the default port \n21666\n, please modify \nisaacnetwork_somenumber/main.lua\n, \nlocal currentPort = 21666\n to correspond to the server's port. (You may have to launch Isaac a first time before having access to this file)\n\n\nLaunch Isaac, choose your character, then start a run.\n\n\nEnter in the debug console by pressing \n~\n (QWERTY), \n\u00f9\n (AZERTY) or \n\u00f6\n (QWERTZ), depending on your keyboard layout.\n\n\nType \nconnect\n, space, then the server's IP.\n\n\nEnjoy !\n\n\n\n\nFor more information, please refer to the Client Commands page.\n\n\nServer Setup, Step by Step\n\n\n\n\nFollow steps 1 and 2 of the client setup.\n\n\nStart Isaac a first time and close it.\n\n\nExtract the \nIsaacServer\n folder where you want, and put it on the host machine.\n\n\nOpen \nconfig.json\n.\n\n\nModify the seed to the seed you want each client to start with.\n\n\nIf the port \n21666\n is already used, please choose another one, please indicate this to whoever will connect to your server, they will need it.\n\n\nModify \n\"maxClient\"\n to the maximum number of clients the server will accept.\n\n\nYou may need to do a port forwarding if you host your server yourself, please refer to your router's manual.\n\n\nStart the server.\n\n\nEnjoy.\n\n\n\n\nFor more information, please refer to the Server Config page.",
+            "title": "Quick Setup"
+        },
+        {
+            "location": "/index.html#isaac-networking-system-setup",
+            "text": "Usage guide.",
+            "title": "Isaac Networking System Setup"
+        },
+        {
+            "location": "/index.html#client-setup-step-by-step",
+            "text": "Subscribe to IsaacNetwork on Steam.  Add  --luadebug  in  Steam > Library > The Binding of Isaac: Rebirth > Properties > Set Launch Options . (For security reasons, remove it when not using the client)  Subscribe to the plugins you want to use.  If your server does not use the default port  21666 , please modify  isaacnetwork_somenumber/main.lua ,  local currentPort = 21666  to correspond to the server's port. (You may have to launch Isaac a first time before having access to this file)  Launch Isaac, choose your character, then start a run.  Enter in the debug console by pressing  ~  (QWERTY),  \u00f9  (AZERTY) or  \u00f6  (QWERTZ), depending on your keyboard layout.  Type  connect , space, then the server's IP.  Enjoy !   For more information, please refer to the Client Commands page.",
+            "title": "Client Setup, Step by Step"
+        },
+        {
+            "location": "/index.html#server-setup-step-by-step",
+            "text": "Follow steps 1 and 2 of the client setup.  Start Isaac a first time and close it.  Extract the  IsaacServer  folder where you want, and put it on the host machine.  Open  config.json .  Modify the seed to the seed you want each client to start with.  If the port  21666  is already used, please choose another one, please indicate this to whoever will connect to your server, they will need it.  Modify  \"maxClient\"  to the maximum number of clients the server will accept.  You may need to do a port forwarding if you host your server yourself, please refer to your router's manual.  Start the server.  Enjoy.   For more information, please refer to the Server Config page.",
+            "title": "Server Setup, Step by Step"
+        },
+        {
+            "location": "/server-conf/index.html",
+            "text": "Server Config\n\n\nFile \nconfig.json\n, json file, containing the configuration of the server.\n\n\nIl contains the following fields:\n\n\n\n\n'seed'\n contains the starting seed, use the option \n'GENERATE'\n (default), to make the server generate a random seed at the start of each run.\n\n\n'port'\n contains the port used by the server.\n\n\n'maxClient'\n contains the maximum number of clients the server will accept.\n\n\n'bufferMax'\n contains the maximum size of the buffer before it is flushed, only modify if necessary.",
+            "title": "Server Config"
+        },
+        {
+            "location": "/server-conf/index.html#server-config",
+            "text": "File  config.json , json file, containing the configuration of the server.  Il contains the following fields:   'seed'  contains the starting seed, use the option  'GENERATE'  (default), to make the server generate a random seed at the start of each run.  'port'  contains the port used by the server.  'maxClient'  contains the maximum number of clients the server will accept.  'bufferMax'  contains the maximum size of the buffer before it is flushed, only modify if necessary.",
+            "title": "Server Config"
+        },
+        {
+            "location": "/client-com/index.html",
+            "text": "Client Commands\n\n\n\n\nconnect [IP]\n will connect the client to the server of the given IP.\n\n\ndisconnect\n will disconnect you from the server.\n\n\npluginlist\n will list all the added plugins.",
+            "title": "Client Commands"
+        },
+        {
+            "location": "/client-com/index.html#client-commands",
+            "text": "connect [IP]  will connect the client to the server of the given IP.  disconnect  will disconnect you from the server.  pluginlist  will list all the added plugins.",
+            "title": "Client Commands"
+        },
+        {
+            "location": "/pub-data/index.html",
+            "text": "Public Fields\n\n\nAll public fields are in the global lua table \nIsaacNetwork\n.\n\n\nVariables\n\n\n\n\n\n\nIsaacNetwork.clientID\n : Contains the Client ID , the identifier for all communitations.\n\n\n\n\n\n\nIsaacNetwork.currentBehaviour\n : Idle (0) or client (1).\n\n\n\n\n\n\nIsaacNetwork.connectIP\n : the server's IP.\n\n\n\n\n\n\nIsaacNetwork.baseSeed\n : the seed the server sent at connection.\n\n\n\n\n\n\nIsaacNetwork.connectedClients\n : Contains all the data received from the server. It is a table with the Client ID as key for the data related to this client. Each CID has its own subtable containing : \n\n\n\n\n\n\n\n\n\n\n['ID']\n : the Client ID\n\n\n['STATE']\n: 'Connected' or 'Disconnected'\n\n\n['PLUGINDATA']\n : contains a table of the sent data from the client's plugins.\n\n\n\n\n\n\nFunctions\n\n\n\n\nIsaacNetwork.CloseConnection()\n : closes the current connection with the server.\n\n\nIsaacNetwork.RegisterNetworkPlugin(name, sender, processor)\n : registers a plugin, more info on the Plugin Registering page.",
+            "title": "Public Fields"
+        },
+        {
+            "location": "/pub-data/index.html#public-fields",
+            "text": "All public fields are in the global lua table  IsaacNetwork .",
+            "title": "Public Fields"
+        },
+        {
+            "location": "/pub-data/index.html#variables",
+            "text": "IsaacNetwork.clientID  : Contains the Client ID , the identifier for all communitations.    IsaacNetwork.currentBehaviour  : Idle (0) or client (1).    IsaacNetwork.connectIP  : the server's IP.    IsaacNetwork.baseSeed  : the seed the server sent at connection.    IsaacNetwork.connectedClients  : Contains all the data received from the server. It is a table with the Client ID as key for the data related to this client. Each CID has its own subtable containing :       ['ID']  : the Client ID  ['STATE'] : 'Connected' or 'Disconnected'  ['PLUGINDATA']  : contains a table of the sent data from the client's plugins.",
+            "title": "Variables"
+        },
+        {
+            "location": "/pub-data/index.html#functions",
+            "text": "IsaacNetwork.CloseConnection()  : closes the current connection with the server.  IsaacNetwork.RegisterNetworkPlugin(name, sender, processor)  : registers a plugin, more info on the Plugin Registering page.",
+            "title": "Functions"
+        },
+        {
+            "location": "/plugin-reg/index.html",
+            "text": "Plugin Registering\n\n\nTo use the server/client system of Isaac Netwoking System, you must use plugins. A plugin is composed of 2 functions, a sender and a processor. The sender (or table builder if you want), will return a table containing the plugin's data. The client will then send this data, along with other plugin's data to the server, that will then send this data to the other clients. The client will then call the processor with a table containing the plugin's data of all the clients.\n\n\nSo :\n\n\n\n\n\n\nname\n is the plugin's name, must be the same for the plugin to get other clients' data.\n\n\n\n\n\n\nsender\n is a function returning a table, that will be called each frame to get the plugin's data.\n\n\n\n\n\n\nprocessor\n is a function getting a table of the format \n['ID']= Plugin_data\n, where \nPlugin_data\n is the data sent by the sender of the same plugin, and \nID\n, the client ID of the client that sent the data. Please note that while \nID\n is an integer, the key to the table is a string. It will be called when the client receives its data from the server. \n\n\n\n\n\n\n\n\nIMPORTANT : any given frame is NOT guarantied to be received by either the server or the client, the only certitude you have is that it's the latest complete frame received. Different clients could have a different last complete frame.\n\n\n\n\nIsaacNetwork.RegisterNetworkPlugin(name, sender, processor)\n will register the plugin, and call back the functions at the appropriate time.",
+            "title": "Plugin Registering"
+        },
+        {
+            "location": "/plugin-reg/index.html#plugin-registering",
+            "text": "To use the server/client system of Isaac Netwoking System, you must use plugins. A plugin is composed of 2 functions, a sender and a processor. The sender (or table builder if you want), will return a table containing the plugin's data. The client will then send this data, along with other plugin's data to the server, that will then send this data to the other clients. The client will then call the processor with a table containing the plugin's data of all the clients.  So :    name  is the plugin's name, must be the same for the plugin to get other clients' data.    sender  is a function returning a table, that will be called each frame to get the plugin's data.    processor  is a function getting a table of the format  ['ID']= Plugin_data , where  Plugin_data  is the data sent by the sender of the same plugin, and  ID , the client ID of the client that sent the data. Please note that while  ID  is an integer, the key to the table is a string. It will be called when the client receives its data from the server.      IMPORTANT : any given frame is NOT guarantied to be received by either the server or the client, the only certitude you have is that it's the latest complete frame received. Different clients could have a different last complete frame.   IsaacNetwork.RegisterNetworkPlugin(name, sender, processor)  will register the plugin, and call back the functions at the appropriate time.",
+            "title": "Plugin Registering"
+        }
+    ]
+}
